@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RazorTest.Models;
+using RazorTest.Services;
 
 namespace RazorTest
 {
@@ -27,6 +28,7 @@ namespace RazorTest
         {
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=articles;"));
+            services.AddHttpClient<GitHubService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
